@@ -37,7 +37,7 @@ resource "aws_eks_cluster" "reportportal" {
 resource "aws_cloudwatch_log_group" "reportportal" {
   # The log group name format is /aws/eks/<cluster-name>/cluster
   # Reference: https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html
-  name              = "/aws/eks/epmrpp-reportportal-${var.cluster_env}-eks/cluster"
+  name              = "/aws/eks/${var.prj_code}-reportportal-${var.cluster_env}-eks/cluster"
   retention_in_days = 7
 }
 
@@ -45,7 +45,7 @@ resource "aws_cloudwatch_log_group" "reportportal" {
 # API Node Group
 resource "aws_eks_node_group" "reportportal-api" {
   cluster_name    = aws_eks_cluster.reportportal.name
-  node_group_name = "epmrpp-api-${var.cluster_env}-nodegroup"
+  node_group_name = "${var.prj_code}-api-${var.cluster_env}-nodegroup"
   node_role_arn   = var.nodegroup_iam_role
   subnet_ids      = var.vpc_subnets
   
@@ -83,7 +83,7 @@ resource "aws_eks_node_group" "reportportal-api" {
 # RabbitMQ Node Group
 resource "aws_eks_node_group" "reportportal-rabbitmq" {
   cluster_name    = aws_eks_cluster.reportportal.name
-  node_group_name = "epmrpp-rabbitmq-${var.cluster_env}-nodegroup"
+  node_group_name = "${var.prj_code}-rabbitmq-${var.cluster_env}-nodegroup"
   node_role_arn   = var.nodegroup_iam_role
   subnet_ids      = var.vpc_subnets
   
@@ -121,7 +121,7 @@ resource "aws_eks_node_group" "reportportal-rabbitmq" {
 # ElasticSearch Node Group
 resource "aws_eks_node_group" "reportportal-elastic" {
   cluster_name    = aws_eks_cluster.reportportal.name
-  node_group_name = "epmrpp-elastic-${var.cluster_env}-nodegroup"
+  node_group_name = "${var.prj_code}-elastic-${var.cluster_env}-nodegroup"
   node_role_arn   = var.nodegroup_iam_role
   subnet_ids      = var.vpc_subnets
   
@@ -159,7 +159,7 @@ resource "aws_eks_node_group" "reportportal-elastic" {
 # Monitoring Node Group
 resource "aws_eks_node_group" "reportportal-monitoring" {
   cluster_name    = aws_eks_cluster.reportportal.name
-  node_group_name = "epmrpp-monitoring-${var.cluster_env}-nodegroup"
+  node_group_name = "${var.prj_code}-monitoring-${var.cluster_env}-nodegroup"
   node_role_arn   = var.nodegroup_iam_role
   subnet_ids      = var.vpc_subnets
   
