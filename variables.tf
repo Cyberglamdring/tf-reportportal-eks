@@ -11,6 +11,18 @@ variable "cluster_env" {
   default     = ""
 }
 
+variable "prj_code" {
+  type        = string
+  description = "Project ID or unique key"
+  default     = ""
+}
+
+variable "cluster_version" {
+  type        = string
+  description = "Kubernetes cluster version"
+  default     = ""
+}
+
 variable "cluster_iam_role" {
   type        = string
   description = "IAM Role ARN for EKS Cluster"

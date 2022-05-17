@@ -15,9 +15,9 @@ provider "aws" {
 resource "aws_eks_cluster" "reportportal" {
   depends_on = [aws_cloudwatch_log_group.reportportal]
 
-  name                      = "epmrpp-reportportal-${var.cluster_env}-eks"
+  name                      = "${var.prj_code}-reportportal-${var.cluster_env}-eks"
   role_arn                  = var.cluster_iam_role 
-  version                   = "1.20"
+  version                   = var.cluster_version
   enabled_cluster_log_types = ["api", "audit"]
 
   vpc_config {
