@@ -1,6 +1,7 @@
 aws_region = ""
 prj_code = ""
 cluster_env = ""
+cluster_version = "1.20"
 cluster_iam_role = ""
 vpc_subnets = [
   "",
