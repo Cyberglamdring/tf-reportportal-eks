@@ -30,7 +30,6 @@ resource "aws_eks_cluster" "reportportal" {
   tags = {
     "Environment" = var.cluster_env
     "Owner" = "terraform"
-    "Timestamp" = "${timestamp()}"
   }
 }
 
@@ -76,7 +75,6 @@ resource "aws_eks_node_group" "reportportal-api" {
     "Environment" = var.cluster_env
     "Owner" = "terraform"
     "NodeGroup" = "api"
-    "Timestamp" = "${timestamp()}"
   }
 }
 
@@ -114,7 +112,6 @@ resource "aws_eks_node_group" "reportportal-rabbitmq" {
     "Environment" = var.cluster_env
     "Owner" = "terraform"
     "NodeGroup" = "rabbitmq"
-    "Timestamp" = "${timestamp()}"
   }
 }
 
@@ -152,7 +149,6 @@ resource "aws_eks_node_group" "reportportal-elastic" {
     "Environment" = var.cluster_env
     "Owner" = "terraform"
     "NodeGroup" = "elasticsearch"
-    # "Timestamp" = "${timestamp()}"
   }
 }
 
@@ -190,6 +186,5 @@ resource "aws_eks_node_group" "reportportal-monitoring" {
     "Environment" = var.cluster_env
     "Owner" = "terraform"
     "NodeGroup" = "monitoring"
-    # "Timestamp" = "${timestamp()}"
   }
 }
