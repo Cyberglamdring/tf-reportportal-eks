@@ -152,7 +152,7 @@ resource "aws_eks_node_group" "reportportal-elastic" {
     "Environment" = var.cluster_env
     "Owner" = "terraform"
     "NodeGroup" = "elasticsearch"
-    "Timestamp" = "${timestamp()}"
+    # "Timestamp" = "${timestamp()}"
   }
 }
 
@@ -190,6 +190,6 @@ resource "aws_eks_node_group" "reportportal-monitoring" {
     "Environment" = var.cluster_env
     "Owner" = "terraform"
     "NodeGroup" = "monitoring"
-    "Timestamp" = "${timestamp()}"
+    # "Timestamp" = "${timestamp()}"
   }
 }
